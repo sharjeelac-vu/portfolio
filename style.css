@@ -1,0 +1,917 @@
+/* Root variables for consistent theming */
+:root {
+    --primary-color: #82FF1F;
+    --secondary-color: #1A1A1A;
+    --tertiary-color: #F8F8F8;
+    --text-color: #111;
+    --accent-color: #C9FF90;
+    --font-family: 'Roboto', sans-serif;
+    --primary-padding: 80px 24px;
+    --secondary-padding: 20px 24px 10px;
+    --border-radius: 10px;
+    --transition: all 0.3s ease;
+}
+
+/* Global reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+/* Body styles */
+body {
+    background-color: var(--tertiary-color);
+    color: var(--text-color);
+    margin: auto;
+}
+
+/* Badge styles with pulse animation */
+.badge {
+    border: 1px solid gray;
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: fit-content;
+    animation: pulseBadge 2s infinite ease-in-out;
+}
+
+.badge-dot {
+    height: 10px;
+    width: 10px;
+    background-color: greenyellow;
+    border-radius: 50%;
+    display: inline-block;
+    animation: blinkDot 1.5s infinite;
+}
+
+/* Section styles */
+section {
+    padding: var(--primary-padding);
+}
+
+.section-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 400;
+    margin-bottom: 2.5rem;
+    position: relative;
+    animation: slideInFromLeft 0.8s ease-out;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 4px;
+    background-color: var(--primary-color);
+    animation: expandLine 1s ease-out;
+}
+
+/* CTA button styles with bounce effect */
+.cta-button {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    margin: 2.5rem auto 0;
+    display: block;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.cta-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Header styles */
+header {
+    background-color: var(--text-color);
+    color: white;
+    padding: 0 20px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 0;
+}
+
+#bars {
+    font-size: 1rem;
+    cursor: pointer;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+nav i:hover {
+    transform: rotate(360deg);
+}
+
+.logo h1 {
+    font-size: clamp(1.25rem, 4vw, 1.5rem);
+    animation: fadeIn 1s ease-in;
+}
+
+.nav-links {
+    display: none;
+    gap: 1.25rem;
+}
+
+.nav-links a {
+    animation: slideInFromTop 0.5s ease-out;
+}
+
+.badge-available {
+    margin: 1.5rem 0;
+}
+
+/* Intro section with fade-in effect */
+.intro-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    animation: fadeIn 1.2s ease-in;
+}
+
+.profile-img {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    animation: slideUp 1s ease-out;
+}
+
+.intro-section .intro-text {
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    animation: scaleIn 1s ease-out;
+}
+
+.cta-section {
+    display: none;
+}
+
+/* Features grid with staggered entrance */
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+}
+
+.feature-card {
+    background-color: white;
+    padding: 1.25rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: slideUp 0.8s ease-out;
+    animation-delay: calc(0.1s * var(--order));
+}
+
+.feature-card:nth-child(1) { --order: 1; }
+.feature-card:nth-child(2) { --order: 2; }
+.feature-card:nth-child(3) { --order: 3; }
+
+.feature-card h3 {
+    margin-bottom: 0.625rem;
+    font-size: 1.5rem;
+}
+
+.feature-card p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.feature-card .icon {
+    background-color: var(--text-color);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.9375rem;
+    transition: var(--transition);
+}
+
+.feature-card .icon:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+.feature-card i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+/* Projects section */
+.projects-section {
+    background-color: var(--text-color);
+    color: white;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+}
+
+.project-card {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    border: 1px solid white;
+    animation: fadeIn 1s ease-out;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.project-header {
+    margin: 1.25rem 0;
+    padding: 0 0.625rem;
+}
+
+.project-header i {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.project-header i:hover {
+    transform: scale(1.3);
+}
+
+.project-title {
+    display: inline;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.project-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: var(--transition);
+}
+
+.project-img:hover {
+    transform: scale(1.05);
+}
+
+.cta-schedule-call {
+    margin: 2.5rem 0;
+}
+
+/* Workflow section */
+.workflow-cotainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.workflow-card {
+    animation: slideInFromRight 0.8s ease-out;
+}
+
+.workflow-card h3 {
+    margin-bottom: 0.625rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.workflow-card p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.workflow-card hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 1.25rem 0;
+}
+
+/* Services section */
+.services-section {
+    background: var(--text-color);
+    color: white;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: var(--primary-color);
+    color: var(--text-color);
+    border-radius: 16px;
+    padding: 2rem 1.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 350px;
+    transition: var(--transition);
+    animation: slideUp 0.8s ease-out;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.service-card:nth-child(1) { animation-delay: 0.1s; }
+.service-card:nth-child(2) { animation-delay: 0.2s; }
+.service-card:nth-child(3) { animation-delay: 0.3s; }
+
+.service-card:nth-child(2) {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.service-card:nth-child(2) h3,
+.service-card:nth-child(2) p,
+.service-card:nth-child(2) li {
+    color: white;
+}
+
+.service-card:nth-child(3) {
+    background: var(--tertiary-color);
+}
+
+.service-card:nth-child(3) h3,
+.service-card:nth-child(3) p,
+.service-card:nth-child(3) li {
+    color: var(--text-color);
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.service-card p {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 1.125rem;
+}
+
+.service-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    width: 100%;
+}
+
+.service-features li {
+    font-size: 1rem;
+    color: #222;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #555;
+    transition: var(--transition);
+}
+
+.service-features li:hover {
+    padding-left: 10px;
+    color: var(--primary-color);
+}
+
+.service-features li:last-child {
+    border-bottom: none;
+}
+
+.service-card .cta-button {
+    margin: 0;
+    background-color: var(--accent-color);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* About section */
+.about-section {
+    background-color: var(--tertiary-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.about-section .my-img-container {
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.about-section img {
+    width: 100%;
+    border-radius: var(--border-radius);
+    animation: fadeIn 1.2s ease-out;
+}
+
+.social-links ul {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    justify-content: space-between;
+    margin-top: 2.5rem;
+    list-style-type: none;
+}
+
+.social-links ul li a {
+    color: white;
+    font-size: 1.5rem;
+    background-color: var(--text-color);
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.social-links ul li a:hover {
+    background-color: var(--primary-color);
+    transform: rotate(360deg);
+}
+
+/* Experience section */
+.experience-section {
+    background: linear-gradient(to bottom, var(--primary-color) 0%, var(--tertiary-color) 100%);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.experience-section h3 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+    color: var(--text-color);
+}
+
+.experience-section p {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 1.125rem;
+}
+
+.experience-section span {
+    font-size: 1rem;
+    color: #222;
+    padding: 0.5rem 0;
+    animation: fadeIn 1s ease-out;
+}
+
+.experience-section hr {
+    border: none;
+    border-top: 1px solid var(--text-color);
+    margin: 1.25rem 0;
+}
+
+/* Review section */
+.review-section {
+    background-color: var(--text-color);
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.my-story-card {
+    border: 0.5px solid gray;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    animation: slideInFromRight 0.8s ease-out;
+}
+
+.my-story-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--primary-color);
+}
+
+.my-story-card h2 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    color: white;
+}
+
+.my-story-card p {
+    font-size: 1rem;
+    color: #ccc;
+    margin-bottom: 1.125rem;
+}
+
+.review-section .review-card {
+    border: 0.5px solid gray;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    background-color: var(--secondary-color);
+    animation: slideUp 0.8s ease-out;
+}
+
+.review-section .review-card .stars {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    color: var(--primary-color);
+    animation: twinkle 2s infinite;
+}
+
+.review-section .review-card p {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    color: var(--tertiary-color);
+}
+
+.review-section .review-card .reviewer {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+}
+
+.review-section .review-card:nth-child(2) {
+    background-color: var(--tertiary-color);
+    color: var(--text-color);
+}
+
+.review-section .review-card:nth-child(2) p {
+    color: var(--text-color);
+}
+
+/* Footer styles */
+footer {
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 1.25rem;
+    font-size: 0.9rem;
+}
+
+footer .contact-section {
+    margin-bottom: 0.625rem;
+    background-color: var(--text-color);
+    padding: 1.25rem;
+    border-radius: 20px;
+    animation: fadeIn 1s ease-out;
+}
+
+footer .contact-section .badge {
+    margin: auto;
+}
+
+footer .links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.625rem;
+    margin-top: 0.625rem;
+    font-size: 0.8rem;
+}
+
+footer .links ul {
+    list-style: none;
+    display: flex;
+    gap: 1.25rem;
+    padding: 0;
+    margin: 0;
+}
+
+footer .links ul li a {
+    color: white;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+footer .links ul li a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.contact-me {
+    padding: 8px 16px;
+    border: 1px solid #F8F8F8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    transition: var(--transition);
+}
+
+.contact-me:hover {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+/* Keyframe animations */
+@keyframes pulseBadge {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes blinkDot {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes expandLine {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 50px;
+    }
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+    :root {
+        --primary-padding: 100px 32px;
+    }
+
+    header {
+        padding: 0 32px;
+    }
+
+    .badge-available {
+        margin: 6.25rem 0 1.125rem;
+    }
+
+    .intro-section .intro-text {
+        font-size: clamp(6rem, 7vw, 10rem);
+    }
+
+    .intro-section {
+        min-height: 1080px;
+    }
+
+    .cta-section {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        justify-content: flex-start;
+        font-size: 1rem;
+        line-height: 1.5;
+        align-items: flex-start;
+        text-align: left;
+        position: absolute;
+        left: 0;
+        bottom: 100px;
+    }
+
+    .cta-section .cta-button {
+        margin: 1.25rem 0 0;
+    }
+
+    .profile-img {
+        position: absolute;
+        width: 600px;
+        bottom: 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    :root {
+        --primary-padding: 140px 120px;
+    }
+
+    #bars {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        align-items: center;
+        font-size: 1rem;
+        list-style-type: none;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: white;
+        transition: var(--transition);
+    }
+
+    .intro-section {
+        height: 1080px;
+    }
+
+    .section-title {
+        font-size: clamp(3rem, 6vw, 5rem);
+        margin-bottom: 80px;
+    }
+
+    .cta-section {
+        width: 30%;
+    }
+
+    header {
+        padding: 0 100px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .projects-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+    }
+
+    .my-workflow-section {
+        display: flex;
+    }
+
+    .workflow-cotainer {
+        width: 60%;
+    }
+
+    .workflow-card h3 {
+        font-size: 2rem;
+    }
+
+    .workflow-card p {
+        font-size: 1.2rem;
+    }
+
+    .services-container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .service-card {
+        background: var(--primary-color);
+        color: var(--text-color);
+        border-radius: 16px;
+        padding: 2rem 1.5rem 2.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        min-height: 500px;
+        transition: var(--transition);
+    }
+
+    .about-section {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .about-section .right {
+        width: 50%;
+    }
+
+    .about-section .my-img-container {
+        width: 35%;
+        margin: 0;
+        justify-content: flex-start;
+    }
+
+    .about-section .social-links {
+        width: 50%;
+    }
+
+    .experience-section {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .review-section {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .my-story-card, .review-card {
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .contact-section {
+        width: 60%;
+        margin: auto;
+    }
+
+    .contact-section .email-address {
+        font-size: 3rem;
+        margin-top: 1rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    .intro-section {
+        min-height: 100vh;
+    }
+}

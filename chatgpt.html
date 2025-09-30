@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wilson Brock</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #0a0a0a;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    nav {
+      width: 100%;
+      padding: 20px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-weight: bold;
+      font-size: 18px;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #2ee75b;
+    }
+
+    .contact-btn {
+      padding: 8px 18px;
+      border: 1px solid #fff;
+      border-radius: 20px;
+      text-decoration: none;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    .contact-btn:hover {
+      background: #2ee75b;
+      color: #000;
+      border-color: #2ee75b;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      position: relative;
+    }
+
+    .status {
+      display: inline-block;
+      background: #111;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .status::before {
+      content: "●";
+      color: #2ee75b;
+      margin-right: 8px;
+    }
+
+    .hero h1 {
+      font-size: 6vw;
+      line-height: 1.1;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .hero h1 span {
+      display: block;
+    }
+
+    .hero img {
+      width: 250px;
+      margin-top: 30px;
+      border-radius: 10px;
+      background: transparent;
+    }
+
+    .hero p {
+      margin-top: 20px;
+      font-size: 15px;
+      color: #ccc;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta {
+      margin-top: 25px;
+    }
+
+    .cta a {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #2ee75b;
+      border-radius: 25px;
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .cta a:hover {
+      background: #22b946;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 12vw;
+      }
+
+      .hero img {
+        width: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">WILSON BROCK ®</div>
+    <ul>
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <a href="#" class="contact-btn">Contact Me</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="status">AVAILABLE FOR WORK</div>
+    <h1>
+      <span>WILSON</span>
+      <span>BROCK©</span>
+    </h1>
+    <img src="Assets/Adobe Express - file.png" alt="Wilson Brock">
+    <p>I blend artistry with cutting-edge technology to deliver websites that not only look stunning but also drive results.</p>
+    <div class="cta">
+      <a href="#">↳ Schedule a consultation</a>
+    </div>
+  </section>
+</body>
+</html>
